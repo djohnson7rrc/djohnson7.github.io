@@ -1,0 +1,87 @@
+<!--------f-----------
+
+    Name: David Johnson
+    Date: Dec 6th, 2023
+    Description:  Contact us page. Mostly simple HTML. Made sure that each input has a label that
+    has id, name, and type. Assignment requirements state that email validation takes place
+    in javascript, so I used "text" as the email field's type instead of "email".
+	
+--------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CONTACT US</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet"> 
+	<script src="javascript.js"></script>
+</head>
+<body>
+	<header>
+		<div id="head">
+			<h1>CYBERVOLT ROBOTICS</h1>
+			<p>&trade;</p>
+		</div>
+		<nav id="navbar" aria-label="navigation bar">
+			<ul>
+				<li><a href="index.html">MAIN PAGE</a></li>
+				<li><a href="products.html">PRODUCTS</a></li>
+				<li><a href="contact.html">CONTACT US</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div id="contactus">
+	    	<h1 id="contacttitle">CONTACT US</h1>
+	    	<form method="post" id="survey_form" action="index.html">
+			    <fieldset>
+			        <ul>
+			            <li>
+			                <label for="name">First and Last Name</label>
+			                <input id="name" name="name" type="text" />
+			                <p class="contacterror" id="required_name">* Required field</p>
+			                <p class="contacterror" id="nameerror">* Please input First and Last Name</p>
+			            </li>
+			            <li>
+			                <label for="phone">Phone Number</label>
+			                <input id="phone" name="phone" type="text" />
+			                <p class="contacterror" id="required_phone">* Required field</p>
+			                <p class="contacterror" id="phoneerror">* Invalid Phone Number</p>
+			            </li>
+			            <li>
+			                <label for="email">Email</label>
+			                <input id="email" name="email" type="text" />
+			                <p class="contacterror" id="required_email">* Required field</p>
+			                <p class="contacterror" id="emailerror">* Invalid Email Address</p>
+			            </li>
+			            <li>
+			                <label for="comment">Comment:</label>
+			                <textarea id="comment" name="comment" rows="15"></textarea>
+			                <p class="contacterror" id="required_comment">* Comment field must have text</p>
+			            </li>
+			        </ul>
+			         <p class="center">
+			            <button type="submit" id="submit">SUBMIT</button>
+			            <button type="reset" id="clear">RESET</button>
+			        </p>
+			    </fieldset>
+			</form>
+		</div>
+	</main>
+
+	<footer>
+		<nav>
+			<ul>
+				<li><a href="index.html">MAIN PAGE</a></li>
+				<li><a href="products.html">PRODUCTS</a></li>
+				<li><a href="contact.html">CONTACT US</a></li>
+			</ul>
+		</nav>
+		<p>CYBERVOLT ROBOTICS is a fictiional company. Any resemblence to a real company is a complete coincidence. This website has been created as web development project by David Johnson.</p>
+	</footer>
+</body>
+</html>

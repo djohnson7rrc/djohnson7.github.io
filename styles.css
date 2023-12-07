@@ -1,0 +1,360 @@
+/********f************
+    
+    Project 4
+    Name:  Dave Johnson
+    Date: Dec 6th, 2023
+    Description:  My .css file for project 4. All images used are from https://pixabay.com/ under
+    creative commons license.  Dhurjati from google fonts was used for most titles and for the company
+    name.
+
+
+*********************/
+/*#head is the label for the title of the company and the image background on every page.
+I used nowrap to make sure the image and title looked the same at all window sizes. I used
+text-shadow to give the text a neon white effect, and then set the actual text to black
+to highlight the neon effect.*/
+#head {
+	background-image: url('images/headerbg.jpg');
+	background-size: cover;
+
+	height: 190px;
+	width: 100%;
+	align-content: center;
+	background-color: #99CCFF;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+#head h1 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 130px;
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    white-space: nowrap;
+}
+
+#head p {
+	position: relative;
+	top: -40px;
+}
+/*#navbar is the for the navbar just below the company title and background. The nav bar has a
+slight neon effect thanks to the box shadow.  I used position: so it would be there would be no 
+gap between it and the company title/background. Finally, I created a hover effect that turns
+the background of the link white, rounded the border with border-radius, and used box-shadow
+to once again create a neon white border.*/
+#navbar {
+    position: relative;
+    top: -16px;
+    background-color: black;
+    box-shadow: inset 0 -10px 20px rgba(255, 255, 255, 0.5);
+}
+
+#navbar ul {
+	display: flex;
+	list-style-type: none;
+	align-content: center;
+	justify-content: center;
+}
+
+#navbar ul li {
+	margin: 0px 50px;
+	font-size: 130%;
+	width: 200px;
+	text-align: center;
+}
+
+#navbar ul li a {
+	text-decoration: none;
+	color: #eeeeee;
+}
+
+#navbar ul li:hover, #navbar ul li a:focus {
+		background-color: black;
+		border-radius: 30px;
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+/*I want a uniform look between all three pages, so I set the body tag directly to have a
+background image.  I set it to fixed so that it stays in place as the user scrolls up and down.*/
+body {
+	background: url('images/background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 0px;
+	margin: 0px;
+
+}
+
+/*Below are the ID's for the main title, and the three different content boxes on the main page.
+While I possibly could used a class or two to gain the same effect, I wanted each box to be
+customizable, especially in regards to the image placement in each box.  Once again, I used
+box-shadow so that the border would have a neon white look.*/
+#maintitle {
+    width: 900px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-radius: 30px;
+    border: 0;
+    margin: 80px auto;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+    color: black;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    font-size: 150%;
+}
+
+/*The three main content boxes on the main page. I chose to offset them to create a more
+dynamic look for the website, as it did not look "right" while lined up in a column.*/
+
+#mainwho {
+    width: 900px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-radius: 30px;
+    border: 0;
+    margin: 80px auto;
+    padding: 80px 10px 30px 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+    color: white;
+	position: relative;
+    left: 150px;
+}
+
+#mainwho img {
+	border-radius: 50%;
+	width: 30%;
+	float: right;
+	position: relative;
+	top: -140px;
+}
+
+#mainhistory {
+    width: 900px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-radius: 30px;
+    border: 0;
+    margin: 80px auto;
+    padding: 80px 10px 30px 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+    color: white;
+    text-align: right;
+    position: relative;
+    right: 150px;
+}
+
+#mainhistory img {
+	border-radius: 50%;
+	width: 40%;
+	float: left;
+	position: relative;
+	top: -130px;
+}
+
+
+#employment {
+    width: 900px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-radius: 30px;
+    border: 0;
+    margin: 80px auto;
+    padding: 80px 10px 30px 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+    color: white;
+    position: relative;
+    left: 150px;
+}
+
+#employment img {
+	border-radius: 50%;
+	width: 40%;
+	float: right;
+	position: relative;
+	top: -140px;
+}
+
+.intro {
+	font-family: 'Open Sans', sans-serif;
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    font-size: 150%;
+    color: black;
+}
+
+/*These content boxes are extremely similar to the content boxes on the main page. I probably
+could have gotten away with reusing them, but once again, I wanted easy cusomization on where
+each image is placed so I created individual boxes instead. Just like on the main page, I
+chose to offset these boxes from each other for a more dynamic look.*/
+
+#jeeves {
+    width: 900px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-radius: 30px;
+    border: 0;
+    margin: 80px auto;
+    padding: 80px 10px 30px 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+    color: white;
+	position: relative;
+    left: 150px;
+}
+
+#jeeves img {
+	border-radius: 50%;
+	width: 40%;
+	float: right;
+	position: relative;
+	top: -140px;
+}
+
+#winston {
+	width: 900px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-radius: 30px;
+    border: 0;
+    margin: 80px auto;
+    padding: 80px 10px 30px 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+    color: white;
+    text-align: right;
+    position: relative;
+    right: 150px;
+}
+
+#winston ul {
+    direction: rtl; /* Set the direction to right-to-left */
+}
+
+#winston img {
+	border-radius: 50%;
+	width: 40%;
+	float: left;
+	position: relative;
+	top: -100px;
+}
+
+
+#alfred {
+    width: 900px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-radius: 30px;
+    border: 0;
+    margin: 80px auto;
+    padding: 80px 10px 30px 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+    color: white;
+	position: relative;
+    left: 150px;
+}
+
+#alfred img {
+	border-radius: 50%;
+	width: 40%;
+	float: right;
+	position: relative;
+	top: -110px;
+}
+
+#fineprint {
+	font-size: 60%;
+}
+
+/*The main contact us content box. Because there's just one content box, it is centered
+on the screen.*/
+#contactus {
+    width: 900px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-radius: 30px;
+    border: 0;
+    margin: 80px auto;
+    padding: 80px 10px 30px 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+    color: white;
+    text-align: left;
+}
+
+#contacttitle {
+	font-family: 'Open Sans', sans-serif;
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+    font-size: 250%;
+    color: black;
+}
+/*This is to get rid of the default fieldset border*/
+#contactus fieldset {
+    border: none; 
+    padding: 0;
+}
+
+#contactus ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#contactus li {
+    margin-bottom: 20px;
+}
+
+#comment {
+    width: 500px;
+}
+
+#contactus label {
+    display: block;
+    margin-bottom: 5px;
+}
+/*To center the buttons on the content box*/
+.center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.center button {
+    margin: 0 10px;
+}
+
+.contacterror {
+    color: red;
+}
+
+/*Because we want the look of the footer to be uniform on every page, I modify the look of it
+directly.  To make the page look similar to other corporate pages I've seen, I changed the footer
+so that it has a distinct look compared to the rest of the page. The entire footer is a gray box
+that comes from the bottome of the page and has plain white text.*/
+footer {
+    background-color: #666;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    top: 12px;
+    margin: 0px;
+    align-content: center;
+}
+
+footer nav ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 20px 0;
+}
+
+footer nav ul li {
+    margin: 0 15px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer p {
+    width: 200px;
+    font-size: 80%;
+ 	margin: auto;
+    padding-bottom: 10px;
+}
