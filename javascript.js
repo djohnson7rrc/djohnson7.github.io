@@ -44,25 +44,22 @@ function formHasErrors() {
     /*First we initialize the error flag. If the forms are validated, this returns true, otherwise
     it returns false. This is going to be what the validate function relies on.*/
     let errorFlag = false;
-
     //This creates an array of the forms we want filled.
     let requiredFields = ["name", "phone", "email", "comment"];
 
-    //this for loop will go through each of the fields to make sure they have values
+    /*We're using the formFieldHasInput to check if form have values. If it fails
+    the check, we highlight the label label and change the color of the text.*/
     for (let i = 0; i < requiredFields.length; i++) {
         let textField = document.getElementById(requiredFields[i]);
         let label = document.querySelector(`label[for=${requiredFields[i]}]`);
 
-        /*We're using the formFieldHasInput to check if form have values. If it fails
-        the check, we highlight the label label and change the color of the text.*/
+        /*if the text field is empty, this changes the color of the label, displays the error
+        message, and sets the focus and select to the offending field.*/
         if (!formFieldHasInput(textField)) {
             label.style.backgroundColor = "#FF0000";
             label.style.color = "#000000";
-
-            //Here we get the appropriate error message to display
             document.getElementById("required_" + requiredFields[i]).style.display = "block";
 
-            //This focuses on the invalid field/s.
             if (!errorFlag) {
                 textField.focus();
                 textField.select();
@@ -78,11 +75,11 @@ function formHasErrors() {
     /*where we check to make sure the user input a name that is two words long separated by a
     space*/
     let nameValue = document.getElementById("name").value;
-    let nameRegex = /^[\w]+ [\w]+$/;
+    let nameWords = nameValue.split(" ");
 
     /*Similar to the above, if the name is not valid, the label changes background color
     and text color, and the focus is set to it.*/
-    if (!nameRegex.test(nameValue)) {
+    if (formFieldHasInput(document.getElementById("name")) && nameWords.length !== 2) {
         document.getElementById("nameerror").style.display = "block";
         document.querySelector('label[for="name"]').style.backgroundColor = "#FF0000";
         document.querySelector('label[for="name"]').style.color = "#000000";
@@ -95,15 +92,15 @@ function formHasErrors() {
         errorFlag = true;
     } else {
         document.getElementById("nameerror").style.display = "none";
-        document.querySelector('label[for="phone"]').style.backgroundColor = "#FF0000";
-        document.querySelector('label[for="phone"]').style.color = "#000000";
+        document.querySelector('label[for="name"]').style.backgroundColor = "";
+        document.querySelector('label[for="name"]').style.color = "";
     }
 
     //Checking to make sure the email is valid.
     let emailValue = document.getElementById("email").value;
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(emailValue)) {
+    if (formFieldHasInput(document.getElementById("email")) && !emailRegex.test(emailValue)) {
         document.getElementById("emailerror").style.display = "block";
         document.querySelector('label[for="email"]').style.backgroundColor = "#FF0000";
         document.querySelector('label[for="email"]').style.color = "#000000";
@@ -120,23 +117,36 @@ function formHasErrors() {
         document.querySelector('label[for="email"]').style.color = "";
     }
 
-    //checking to make sure the phone number is ten digits long.
+     //checking to make sure the phone number is ten digits long.
     let regex = /^\d{10}$/;
     let phoneNumValue = document.getElementById("phone").value;
 
-    if (!regex.test(phoneNumValue)) {
-        document.getElementById("phoneerror").style.display = "block";
+    if (formFieldHasInput(document.getElementById("phone"))) {
+        if (!regex.test(phoneNumValue)) {
+            document.getElementById("phoneerror").style.display = "block";
 
-        if (!errorFlag) {
-            document.getElementById("phone").focus();
-            document.getElementById("phone").select();
+            if (!errorFlag) {
+                document.getElementById("phone").focus();
+                document.getElementById("phone").select();
+            }
+
+            // Apply styling only if there's an error
+            document.querySelector('label[for="phone"]').style.backgroundColor = "#FF0000";
+            document.querySelector('label[for="phone"]').style.color = "#000000";
+
+            errorFlag = true;
+        } else {
+            document.getElementById("phoneerror").style.display = "none";
+            // Clear styling when there's no error
+            document.querySelector('label[for="phone"]').style.backgroundColor = "";
+            document.querySelector('label[for="phone"]').style.color = "";
         }
-
-        errorFlag = true;
     }
 
     return errorFlag;
 }
+
+
 
 /*We only want the error messages to show when a field has not been filled or has been filled
 incorrectly. This function hides the error messages until they are needed.*/
